@@ -1,0 +1,337 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red58\green89\blue101;\red30\green30\blue30;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid1\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs40 \cf0 So what we\'92re going to do today is to start making some style choices about the pages we\'92ve been working on. \
+\
+You\'92ll see that I\'92ve created a new folder to group our project info in, inside of our w10d2 folder. Let\'92s take a look at what we have: \
+\
+css/style.css is where our stylesheet goes\
+\
+css/finished.css is where we\'92ll get with the assignment \
+\
+img has some images we\'92ll put on the page \
+\
+and then we have our same old pages that we had before\
+\
+Let\'92s start by dropping a link to a stylesheet into the head element of the index page: \
+\
+      <link rel="stylesheet" href="css/style.css" />\
+\
+then we can test this out by writing a line of code over in the stylesheet to see if it comes across: \
+\
+body \{\
+  background-color: gray;\
+\}\
+\
+And it does. \
+\
+So now let\'92s look at some simple examples of how the stylesheet can change parts of the document, but not all of the document. \
+\
+Let\'92s change that background-color to #ccc, a light gray. \
+\
+Now let\'92s change the text; write a new style rule: \
+\
+p \{\
+  color: red; \
+\}\
+\
+What changed and what didn\'92t? \
+\
+What about if we write: \
+\
+h1 \{\
+  color: red; \
+\}\
+\
+Now what are we seeing? What\'92s the difference? \
+\
+Let\'92s change up the h1 tag to be, say, blue. See how it changes? You don\'92t want to use blue because it can be assumed that it\'92s a link, etc. \
+\
+So in general, you aren\'92t going to make the body text red on a given assignment, but this is useful to play around with so that we can see how these rules target one thing or another. We\'92ll dive more deeply into this soon. \
+\
+Let\'92s also play around with the order in which we write our code. You\'92ve already seen that in html, the order we write on the page is how it displays; this should be pretty straightforward. In css, the order matters too, but in other ways than you\'92d expect. \
+\
+Let\'92s swap the position of that h1 tag and the p tag. What happens? Well, nothing; those style rules are specific, they target parts of the content. \
+\
+Let\'92s do something else, though: let\'92s write a secondary rule that changes something from the first: \
+\
+p \{\
+  color: green;\
+\}\
+\
+Now what color are the paragraphs? Why is that? \
+\
+Explain inheritance principle. \
+\
+We can also add style directly to our pages, in a style tag in the head element:    \
+ <style>\
+      p \{\
+        color: orange;\
+      \}\
+      </style>\
+\
+Atrocious, right? But it gets across the idea that we have inheritance so that css gets more specific the closer to the content we get. \
+\
+Let\'92s go ahead and comment that out, and see what happens: \
+\
+So now you see how comments work. \
+\
+It\'92s useful to be able to target specific types of our content with certain types of tags. Let\'92s write some style rules to change up our headlines on the pages, and some paragraphs: \
+\
+h1 \{\
+  font-family: 'ITC Franklin Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;\
+\}\
+\
+p \{\
+  font-family: Georgia, 'Times New Roman', serif;\
+\}\
+\
+So this will style our h1 as Franklin Condensed, and so forth, and our paragraphs as Georgia, and so forth. \
+\
+We\'92ll notice here that our h2s and h3s don\'92t change. Why is that? (They aren\'92t styled.) Let\'92s add those style rules to the h1 element, so it will look like this: \
+\
+h1, h2, h3 \{\
+  font-family: 'ITC Franklin Condensed', 'Helvetica Neue', Arial, sans-serif;\
+\}\
+\
+That\'92s how you can stack style rules together to apply to multiple elements. They will be the same font but different sizes, because the browser determines sizes unless we explicitly add them. \
+\
+So \'85 about sizing. There are multiple ways to size an element. The most straightforward is to use pixels or points, you would think, but pixels are more complicated than you\'92d think. Used to be 72 ppi or 90 ppi, now is up to 300 but displays visually at 72. Pixels and point sizes are fixed elements. \
+\
+Let\'92s experiment with some sizing, in the p element: \
+\
+  font-size: 16px; \
+  font-size: 24px; \
+\
+This looks great, right! Full granular control. So what\'92s the problem with that? \
+\
+Well \'85 \expnd0\expndtw0\kerning0
+A measure of text (probably the best fundamental element for most sites) isn\'92t fixed or it shouldn\'92t be. It should vary with font-size and line-height. Even things that seem static like an image or ad change size in a responsive layout.\
+\
+\pard\pardeftab720
+\cf0 Grids and layouts are no longer about absolute widths and heights. They\'92re about {\field{\*\fldinst{HYPERLINK "http://www.vanseodesign.com/web-design/size-scale-proportion/"}}{\fldrslt \cf2 \expnd0\expndtw0\kerning0
+proportion and scale}}. A column in an 8 column grid is 12.5% of the total. The gutter on each column might be 15% of the total column width. As soon as you start introducing an absolute measurement into the mix it throws off the {\field{\*\fldinst{HYPERLINK "http://www.vanseodesign.com/web-design/rhythm-proportion-grids-typography/"}}{\fldrslt \cf2 \expnd0\expndtw0\kerning0
+rhythm and proportion}}. You can\'92t have some parts of a design adjust to various conditions while others remain fixed and still maintain the proportion between them.\kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\
+There\'92s also relative elements such as the em element, the width of a lowercase M; by default 1 em is 16px, but the em inherits from the style put on the body, so you can set a different  size on the body and get a different value for ems. \
+\
+\pard\pardeftab720
+\cf0 \expnd0\expndtw0\kerning0
+The most popular method in working with em values is to set the font-size on the body to 62.5%. Because the default browser font-size is 16px, this makes it 10px (without hard-setting it to 10px, which wouldn't cascade). Using 10 as a multiplier is much easier than using 16. This way, you need a font size of 18px? Use font-size: 1.8em.\
+So why both with all this em business when it's just an abstraction of using pixel values anyway? Three possible reasons:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls1\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	1	}\expnd0\expndtw0\kerning0
+The ARE resizeable in IE 6\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	2	}\expnd0\expndtw0\kerning0
+The relationship to other sizes (elastic width sites)\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	3	}\expnd0\expndtw0\kerning0
+Em's cascade like a mo-fo\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \kerning1\expnd0\expndtw0 \
+So let\'92s do that: set font-size in body to 62.5%, and set the font-size in p to 1 em, and see what happens. So all of our text gets smaller, not just the stuff in the body. \
+\
+Let\'92s go back to the p, and do some math. Let\'92s say that I want this to be back to 16 px. We know that the default size will be 10 px, so to get it to 16 px we can set the em to 1.6, and voila, there it is. That seems like a lot of work to get it back to where it was originally, but this will give us more options when we start adding in desktop styles. \
+\
+Now we can set the header styles too \'97 let\'92s say we want them to be 24px, so 2.4 ems. Set that \
+\
+h1, h2, h3 \{\
+  font-family: 'ITC Franklin Condensed', 'Helvetica Neue', Arial, sans-serif;\
+  font-size: 2.4em; \
+\}\
+\
+and \'85 ok, so all the headers are the same size. And we\'92ve lost any kind of semantic styling. \
+\
+Two ways to deal with this: \
+\
+h1 \{\
+  font-family: 'ITC Franklin Condensed', 'Helvetica Neue', Arial, sans-serif;\
+  font-size: 2.4em; \
+\}\
+\
+h2 \{\
+  font-family: 'ITC Franklin Condensed', 'Helvetica Neue', Arial, sans-serif;\
+  font-size: 2.2em; \
+\}\
+\
+h3 \{\
+  font-family: 'ITC Franklin Condensed', 'Helvetica Neue', Arial, sans-serif;\
+  font-size: 2em; \
+\}\
+\
+OR \
+\
+h1, h2, h3 \{\
+  font-family: 'ITC Franklin Condensed', 'Helvetica Neue', Arial, sans-serif;\
+  font-size: 2.4em;\
+\}\
+\
+h2 \{\
+  font-size: 2.2em;\
+\}\
+\
+h3 \{\
+  font-size: 2em;\
+\}\
+\
+Either one of these will work, but one is more verbose than another. \
+\
+You can also set font sizes as percentages, but these inherit from their parent element and can get confusing as time goes on. \
+\
+There\'92s also the rem element, or root em; this is relative to the html setting (not the parent element of the page). The reason to use rems, not ems, would be if you have the parent element set to resize in a particular way, then the parent element resizing won\'92t affect the text within it resizing, and so forth.  \
+\
+The next thing we\'92re going to do is to start adding some even more explicit structure to our document, using some div tags. Let\'92s make div tags to go around each of the blog sections that we have here. \
+\
+Once we do that \'85 nothing changes, because these are just arbitrary tags, div doesn\'92t do anything on its own. But what this will let us do later on is to help move them around the page and position them in other places. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 START FROM HERE ON THURSDAY
+\b0 \
+\
+OK, so this page is still looking pretty boring. Let\'92s add some images to the page and see how it goes. Look in the img folder, we\'92ll add images and see how we can do some more work with them. \
+\
+We\'92re going to switch back to the html now to add the images. \
+\
+        <img src="img/md.jpg" alt="An image of the Moby Dick book cover" />\
+\
+take a look, it\'92s big and inline \
+\
+copy paste add other images \
+\
+So those are all enormous. Let\'92s think through what we\'92re doing: we\'92re going to be adding a cover for each post, we want them all to be the same size, approx. Width is best way to deal with this. We could set all the widths the same in what we generate/save, and this is a best practice, but in reality that\'92s less likely and we might want to reuse the asset elsewhere. \
+\
+Since we\'92re going to have similar solutions for the image, let\'92s put a class on those images. Name it something that makes sense \'97 class\
+\
+class=\'93book\'94\
+\
+look back and nothing\'92s changed, that\'92s ok though because we haven\'92t written a style rule yet \
+\
+write \
+\
+.book \{\
+  width: 100px; \
+\}\
+\
+So that make the cover smaller, but it\'92s always going to stay at 100 px, regardless of the size. We could also size this in ems: \
+\
+width: 10em; \
+\
+and that would scale up and down for us as we change the size it inherits from. If the context changes, for example. \
+\
+Now something that you\'92ll see here is that these book covers are inline. (Demonstrate by putting a link inside the paragraph). What can we do to make these work well elsewhere? Well, we have a thing called float. Let\'92s write a rule inside that class: \
+\
+  float: left;\
+\
+Now they\'92re floating, as in the text wraps around them. There\'92s also float: right; (demo this). \
+\
+No float-center. We have to center things another way, which we\'92ll come to later. \
+\
+But they\'92re still sitting there with the text wrapping right up next to them. How can we change that? \
+\
+  margin-right: 1em;\
+\
+You can set margins on any side of an item, along with border and padding. \
+\
+  border-right: 1px solid black;\
+\
+Can use any color specification there in the shorthand for the border.  \
+\
+Why is that sitting right up against the book? Look at the box model diagram. \
+\
+So let\'92s add 1 em of padding. This will do two things: it will move the border out away from the book, and then also make the entire thing wider. Demo by changing the padding from padding-right to padding. \
+\
+Let\'92s look at that with a bit more of an example: add a background color to the element. Now you can see that padding pushes the border away; margin pushes the other area away from the border. \
+\
+Show shorthand for border, margin, padding, other items. \
+\
+OK, now let\'92s talk about centering. As we said before, there\'92s no float:center element, and centering stuff in css can be a PITA. So we have a couple of options if we want our book covers centered. \
+\
+First off, let\'92s get rid of that float, and border and padding/margin (comment out). Now the book cover is just sitting there. \
+\
+To center it, we have a few options. The first thing to keep in mind about images is that they\'92re inline elements. CSS lets us quickly switch between block level and inline elements in our css, so the first rule we have to write is:\
+\
+display: block; \
+\
+That will make it into a block-level element that we can center. \
+\
+The second thing we want to do to be able to center it requires some backwards thinking. Centering means that we have the exact same margins on the left and right sides of the item, so what we\'92ll do is to use the margin tool. \
+\
+We can do this in one of a few ways. We can set margins as an integer, or a percentage, or a few other ways. What we\'92re going to do is to set the top and bottom margins to 0 (that is, no margin there) and the right and left to \'93auto.\'94 \
+We could write: \
+margin-top: 0\
+margin-right:auto\
+margin-bottom:0 \
+margin-left:auto\
+\
+Or there\'92s a shorthand for that, TRBL\
+margin: 0 auto 0 auto; \
+\
+or just\
+\
+margin 0 auto; \
+\
+So since we\'92re on the small screen, there\'92s also another way to do this. We can specify width and height the same way that we do with anything else, so we can also do percentage values. Let\'92s try width: 100%; \
+\
+So that obviously works on the small screen, on the big screen it gets blowed up bad; \
+\
+We can also try to do this as height 100%; \
+\
+and that doesn\'92t work. Why not? \
+\
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+Because the size of an element defined in percentage is determined by its parent element, we can only have an element fill the entire height of the screen if the parent element also fills the entire height of the screen. This usually means that we have to position the element as fixed, in order to make the html element the parent element, or otherwise resort to some hack.\
+\
+
+\fs40 this will give us an element that\'92s 100 percent of the container\'92s vertical height (show screen sizes) \
+\
+So part of the issue with this is that the cover image doesn\'92t fit neatly onto the page. We could do something different entirely and use some css tricks to make it fit based on the size of the viewport (so in other words, it would always fit regardless of the screen size). We can do that by doing this: \
+\
+\pard\pardeftab720
+\cf3 img \{  \
+  display: block; \
+  width: auto; /* Image width adjust to height to remain proportional */\
+  max-width: 100%; /* Image doesn't exceed parent element's width */\
+  max-height: 90vh; /* Image doesn't exceed viewport height */\
+  margin: 2rem auto; \
+\}\
+\
+Ok, so that\'92s enough about images for now. Let\'92s start playing around with fonts. \
+\
+Talk about font stack. What do we have already? \
+\
+Google fonts. I\'92m going to pick Merriweather Sans for the headline font. Show Google fonts, go to that list, click on fonts. \
+\
+Normal, bold. Add this to the html page: \
+\
+<link href='https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700' rel='stylesheet' type='text/css'>\
+\
+and this to the css: \
+\
+font-family: 'Merriweather Sans', sans-serif;\
+\
+where it\'92s appropriate. Here, what I\'92m going to do is to make the h1 Merriweather \
+\
+h1 \{\
+  font-family: 'Merriweather Sans', 'Helvetica Neue', Arial, sans-serif;\
+  font-size: 2.4em;\
+\}\
+\
+This will make everything the same. Split out the h2s and h3s, and add a font weight (show this over in Google fonts). \
+\
+ h2, h3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 \
+h2, h3 \{\
+  font-family: 'Merriweather Sans', 'Helvetica Neue', Arial, sans-serif;\
+  font-size: 2em;\
+  font-weight: 400;\
+\}\
+}

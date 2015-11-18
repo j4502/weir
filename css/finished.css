@@ -1,8 +1,4 @@
-@@import "bootstrap.min.css"; 
-
-body {
-  font-size: 62.5%;
-}
+@import "bootstrap.min.css";
 
 h1 {
   font-family: 'Merriweather Sans', 'Helvetica Neue', Arial, sans-serif;
@@ -22,24 +18,21 @@ p {
   font-size: 1.6em;
 }
 
-/*.book {
-  height: 100vh;
+.book {
   width: 10em;
-  width: 100%;
   margin: 0 auto;
   display: block;
   float: left;
   margin-right: 1em;
-  border-right: 1px solid black;
-  padding-right: 1em;
-  padding: 1em;
-  background-color: #ccc;
-}*/
+}
 
-.book {
-  display: block;
-  width: auto; /* Image width adjust to height to remain proportional */
-  max-width: 100%; /* Image doesn't exceed parent element's width */
-  max-height: 90vh; /* Image doesn't exceed viewport height */
-  margin: 2em auto;
+.primary-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.primary-nav li {
+    float: left;
+    list-style: none;
+    text-align: center;
 }

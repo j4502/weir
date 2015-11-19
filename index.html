@@ -9,6 +9,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link href='https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700' rel='stylesheet' type='text/css'>
      <link rel="stylesheet" href="css/style.css">
+
 <!--
       <style>
       p {
@@ -21,13 +22,15 @@
 <body>
   <h1>The Literary Snippets Blog</h1>
   <!-- <h2>A blog for old Mizzou</h2> -->
-  <nav class="primary-nav">
-      <ul>
-        <li><a href="#MobyDick">Moby Dick</a></li>
-        <li><a href="#TheWizardOfOz">Wizard of Oz</a></li>
-        <li><a href="#AliceInWonderland">Alice in Wonderland</a></li>
-      </ul>
-    </nav>
+  <div class="container-fluid">
+    <nav class="primary-nav">
+        <ul class="row">
+          <li class="col-xs-4"><a href="#MobyDick">Moby Dick</a></li>
+          <li class="col-xs-4"><a href="#TheWizardOfOz">Wizard of Oz</a></li>
+          <li class="col-xs-4"><a href="#AliceInWonderland">Alice in Wonderland</a></li>
+        </ul>
+      </nav>
+    </div><!-- end container-fluid div-->
     <div id="MobyDick">
       <h2>Moby Dick</h2>
       <img class="book" src="img/md.jpg" alt="A book cover"/>
